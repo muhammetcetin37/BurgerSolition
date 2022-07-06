@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Burger.DAL\Burger.DAL.csproj" />
+    <ProjectReference Include="..\Burger.Entities\Burger.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

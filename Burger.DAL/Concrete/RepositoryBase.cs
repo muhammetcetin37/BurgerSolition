@@ -13,25 +13,25 @@ namespace Burger.DAL.Concrete
         {
             db = new SqlDbContext();
         }
-        public int Add(T input)
+        public virtual int Add(T input)
         {
             db.Set<T>().Add(input);
             return db.SaveChanges();
         }
 
-        public int Delete(T input)
+        public virtual int Delete(T input)
         {
             db.Set<T>().Remove(input);
             return db.SaveChanges();
         }
 
-        public T Get(int id)
+        public virtual T Get(int id)
         {
             return db.Set<T>().Find(id);
 
         }
 
-        public IList<T> GetAll(Expression<Func<T, bool>> filter = null)
+        public virtual IList<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
             if (filter == null)
             {
@@ -43,14 +43,14 @@ namespace Burger.DAL.Concrete
             }
         }
 
-        public IQueryable<T> GetAllInclude(Expression<Func<T, bool>> filter = null,
+        public virtual IQueryable<T> GetAllInclude(Expression<Func<T, bool>> filter = null,
                                           params Expression<Func<T, object>>[] include)
         {
             var query = db.Set<T>().Where(filter);
             return include.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
         }
 
-        public int Update(T input)
+        public virtual int Update(T input)
         {
             db.Set<T>().Update(input);
             return db.SaveChanges();
