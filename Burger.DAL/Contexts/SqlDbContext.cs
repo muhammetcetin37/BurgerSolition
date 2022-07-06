@@ -9,6 +9,14 @@ namespace Burger.DAL.Contexts
         {
 
         }
+        public SqlDbContext()
+        {
+
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=.;Database=Burger;User Id=sa;Password=123");
+        }
         public DbSet<Adres> Adresler { get; set; }
         public DbSet<Ilce> Ilceler { get; set; }
         public DbSet<Kategori> Kategoriler { get; set; }
