@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Burger.DAL.Migrations
 {
     [DbContext(typeof(SqlDbContext))]
-    [Migration("20220706081815_initDb")]
+    [Migration("20220706085601_initDb")]
     partial class initDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
