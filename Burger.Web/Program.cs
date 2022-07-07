@@ -14,7 +14,9 @@ builder.Services
 
 builder.Services.AddScoped<IKategoriManager, KategoriManager>();
 builder.Services.AddScoped<IUserManager, UserManager>();
+
 #region Cookie Ayarlari
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
@@ -22,8 +24,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                     options.LogoutPath = "/User/Logout";
                     options.AccessDeniedPath = "/User/Yasak";
                     options.Cookie.Name = "ErcanBurger";
-                    options.Cookie.HttpOnly = true;//Güvenlikler ilgili,Tarayıcımızdaki diger scriptler okuyamasın.
-                    options.Cookie.SameSite = SameSiteMode.Strict;//Güvenlik ile ilgili.Bizim tarayicimiz disinda okunamasın.
+                    options.Cookie.HttpOnly = true;// Guvenlikle ilgili. Tarayicimizdaki diger scriptler okuyamasin
+                    options.Cookie.SameSite = SameSiteMode.Strict;// Guvenlik ile iligi. Bizim tarayicimiz disinda okunamasin
                 });
 #endregion
 
@@ -41,13 +43,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllerRoute(
-//      name: "areas",
-//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-//    );
-//});
 
 
 app.MapControllerRoute(

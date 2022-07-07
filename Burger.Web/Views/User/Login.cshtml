@@ -1,7 +1,4 @@
-﻿
-
-<link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-
+﻿@model LoginDTO
 <div class="login-box">
   <div class="login-logo">
     <a asp-action="Index"><b>Admin</b>LTE</a>
@@ -13,7 +10,7 @@
 
       <form asp-action="Login" method="post">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input asp-for="Email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -21,7 +18,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input asp-for="Password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -31,7 +28,7 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <input type="checkbox" id="remember" asp-for="RememberMe">
               <label for="remember">
                 Remember Me
               </label>
@@ -57,12 +54,19 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
+        <a asp-action="SifreUnuttum">Şifremi Unuttum</a>
       </p>
       <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <a asp-action="Register" class="text-center">Yeni Uye</a>
       </p>
     </div>
     <!-- /.login-card-body -->
   </div>
 </div>
+@*<button type="button" class="btn btn-success swalDefaultSuccess">
+                  Launch Success Toast
+                </button>*@
+@section Scripts
+{
+    <script src="~/plugins/sweetalert2/sweetalert2.min.js"></script>
+}
